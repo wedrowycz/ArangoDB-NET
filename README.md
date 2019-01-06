@@ -1,3 +1,8 @@
+2019-01-09
+Collection creation faild for edge collection -
+"This is due to the Json msg passed where the value of parameter "type" is "Edge" instead of 3." as stated user berry4u 
+<br/>
+
 **This branch is compatible with ArangoDB 3.x. For more information about incompatible changes with previous branches read [release notes](https://docs.arangodb.com/devel/Manual/ReleaseNotes/UpgradingChanges30.html). For ArangoDB 2.x compatible driver checkout [this](https://github.com/yojimbo87/ArangoDB-NET/tree/2.x) branch.**
 
 # ArangoDB-NET
