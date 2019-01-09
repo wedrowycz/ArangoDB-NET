@@ -113,3 +113,7 @@ UpgradeLog*.XML
 
 # Test connection string with sensitive data
 ConnectionString.txt
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/src/Arango/.vs/Arango/v15/Server/sqlite3/db.lock
+/src/Arango/.vs/Arango/v15/Server/sqlite3
