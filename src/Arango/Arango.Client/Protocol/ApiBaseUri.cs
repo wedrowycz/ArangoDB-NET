@@ -13,5 +13,7 @@ namespace Arango.Client.Protocol
         internal static string Index = "_api/index";
         internal static string Query = "_api/query";
         internal static string Transaction = "_api/transaction";
+        //TJ 2019-02-14
+        internal static string View = "_api/view";
     }
 }

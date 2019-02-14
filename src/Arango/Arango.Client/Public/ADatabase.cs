@@ -78,6 +78,16 @@ namespace Arango.Client
                 return new AQuery(_connection);
             }
         }
+
+        /// <summary>
+        /// provides access to views
+        /// </summary>
+        public AView View
+        {
+            get {
+                return new AView(_connection);
+            }
+        }
         
         /// <summary>
         /// Provides access to transaction operations in current database context.

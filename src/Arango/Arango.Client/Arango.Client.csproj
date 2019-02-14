@@ -96,6 +96,8 @@
     <Compile Include="Public\ASettings.cs" />
     <Compile Include="Public\ATransaction.cs" />
     <Compile Include="Public\AUser.cs" />
+    <Compile Include="Public\AView.cs" />
+    <Compile Include="Public\AViewType.cs" />
     <Compile Include="Public\DictionaryExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
