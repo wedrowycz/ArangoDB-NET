@@ -1,3 +1,9 @@
+2019-02-14
+
+Added first simple implementation for arango search views - module AView
+- create view
+- check for view existence
+
 2019-01-09
 Collection creation faild for edge collection -
 "This is due to the Json msg passed where the value of parameter "type" is "Edge" instead of 3." as stated user berry4u 
