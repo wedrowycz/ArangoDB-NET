@@ -4,6 +4,9 @@ using Arango.fastJSON;
 
 namespace Arango.Client
 {
+    /// <summary>
+    /// Arrango View support
+    /// </summary>
     public class AView
     {
         readonly Dictionary<string, object> _parameters = new Dictionary<string, object>();
@@ -96,6 +99,40 @@ namespace Arango.Client
         }
         #endregion
 
+        #region get view list (GET)
+
+        /// <summary>
+        /// Retrieves Arangodb view list
+        /// </summary>
+        /// <returns></returns>
+        public AResult<Dictionary<string, object>> GetList()
+        {
+            var request = new Request(HttpMethod.GET, ApiBaseUri.View, "");
+
+            var response = _connection.Send(request);
+            var result = new AResult<Dictionary<string, object>>(response);
+
+            switch (response.StatusCode)
+            {
+                case 200:
+                case 201:
+                    var body = response.ParseBody<Dictionary<string, object>>();
+
+                    result.Success = (body != null);
+                    result.Value = body;
+                    break;
+                case 400:
+                case 404:
+                default:
+                    // Arango error
+                    break;
+            }
+
+            _parameters.Clear();
+
+            return result;
+        }
+        #endregion
 
     }
 }
