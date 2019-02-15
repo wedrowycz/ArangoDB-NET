@@ -17,6 +17,7 @@ namespace Arango.Client
             _connection = connection;
         }
 
+        #region arango view properties
         /// <summary>
         /// Determines type of the collection. Default value: Document.
         /// </summary>
@@ -27,6 +28,19 @@ namespace Arango.Client
 
             return this;
         }
+
+        /// <summary>
+        /// adds possibility to add link collection do view
+        /// </summary>
+        /// <param name="collectionName"></param>
+        /// <returns></returns>
+        public AView Link(string collectionName)
+        {
+            _parameters.Object("links", "{"+collectionName + ":{}" +"}");
+            return this;
+        }
+
+        #endregion
 
         #region Create view (POST)
 
@@ -132,6 +146,45 @@ namespace Arango.Client
 
             return result;
         }
+        #endregion
+
+        #region delete view
+        /// <summary>
+        /// deletes specified view
+        /// </summary>
+        /// <param name="viewName">name of view to delete</param>
+        /// <returns>response result</returns>
+        public AResult<Dictionary<string, object>> Delete(string viewName)
+        {
+            var request = new Request(HttpMethod.DELETE, ApiBaseUri.View, "/" + viewName );
+
+            var response = _connection.Send(request);
+            var result = new AResult<Dictionary<string, object>>(response);
+
+            switch (response.StatusCode)
+            {
+                case 200:
+                case 201:
+                    var body = response.ParseBody<Dictionary<string, object>>();
+
+                    result.Success = (body != null);
+                    result.Value = body;
+                    break;
+                case 400:
+                case 404:
+                default:
+                    // Arango error
+                    break;
+            }
+
+            _parameters.Clear();
+
+            return result;
+        }
+        #endregion
+
+        #region modify/patch view definition
+
         #endregion
 
     }
