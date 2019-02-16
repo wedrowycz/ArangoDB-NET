@@ -99,6 +99,8 @@
     <Compile Include="Public\AView.cs" />
     <Compile Include="Public\AViewType.cs" />
     <Compile Include="Public\DictionaryExtensions.cs" />
+    <Compile Include="Public\ViewFields.cs" />
+    <Compile Include="Public\ViewLink.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

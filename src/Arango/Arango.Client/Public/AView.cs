@@ -36,7 +36,7 @@ namespace Arango.Client
         /// <returns></returns>
         public AView Link(string collectionName)
         {
-            _parameters.Object("links", "{"+collectionName + ":{}" +"}");
+            _parameters.Object("links", collectionName  );
             return this;
         }
 
@@ -184,7 +184,44 @@ namespace Arango.Client
         #endregion
 
         #region modify/patch view definition
+        public AResult<Dictionary<string, object>> ChangeProperties(string viewName,string collectionName)
+        {
+            var request = new Request(HttpMethod.PATCH, ApiBaseUri.View, "/"+viewName+ "/properties");
+            var bodyDocument = new Dictionary<string, object>();
+            Dictionary<string, object> links = new Dictionary<string, object>();
+            ViewLink lintattr = new ViewLink();
+            lintattr.analyzers[0] = "identity";
+            lintattr.storeValues = "none";
+            lintattr.trackListPositions = false;
+            //otherwise it makes no sense
+            lintattr.includeAllFields = true;
+            lintattr.fields = new ViewFields();
+            links.Add(collectionName,lintattr);
+            bodyDocument.Object(ParameterName.Links, links);
+            // optional
+            //Request.TrySetBodyParameter(ParameterName.Links, _parameters, bodyDocument);
+            request.Body = JSON.ToJSON(bodyDocument, ASettings.JsonParameters);
 
+            var response = _connection.Send(request);
+            var result = new AResult<Dictionary<string, object>>(response);
+
+            switch (response.StatusCode)
+            {
+                case 201:
+                    var body = response.ParseBody<Dictionary<string, object>>();
+
+                    result.Success = (body != null);
+                    result.Value = body;
+                    break;
+                default:
+                    // Arango error
+                    break;
+            }
+
+            _parameters.Clear();
+
+            return result;
+        }
         #endregion
 
     }

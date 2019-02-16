@@ -54,5 +54,6 @@ namespace Arango.Client.Protocol
         internal const string WaitForSync = "waitForSync";
         internal const string WithRevisions = "withRevisions";
         internal const string WithData = "withData";
+        internal const string Links = "links";
     }
 }
