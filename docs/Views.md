@@ -47,10 +47,10 @@ var deleteViewResult = db.View
     .Delete("MyView");
  if(deleteViewResult.Success)  
  {
-    ....
+    ....and process result
  }
 ```      
-and process 
+
   
 <b> List  Views</b>
 ```csharp
@@ -69,8 +69,21 @@ if(createViewResult.Success)
 }    
 ```
 <b>Add link <b>
-    
+Link is added with most default values : default all fields,analyzers - identity,includeAllFields- true, empty field list  ...
+View support links to Document and Edge Collections  
+  
 ```csharp
 var db = new ADatabase("myDatabaseAlias");
+
+var addLink = db.View
+  .ChangeProperties("MyView","MyCollection1");
+var addLink = db.View
+  .ChangeProperties("MyView","MyEdgeCollection2");
 ```
 
+After adding link's (make sure succesfully) you may query (AQL) and retrieve data from added collections
+
+```sql
+for item in MyView
+  return item
+```
