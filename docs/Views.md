@@ -24,18 +24,48 @@ Fluent api properties :
 var db = new ADatabase("myDatabaseAlias");
 
 // creates new View
-var createCollectionResult = db.View
+var createViewResult = db.View
     .Type(AViewType.arangosearch)    
     .Create("MyView");
-```    
+    
+if(createViewResult.Success)   
+{
+  foreach (var entity in createViewResult.Value)
+  {
+   .... process result
+  }
+}
+```   
+
 <b> Delete View <b>
   
 ```csharp
 var db = new ADatabase("myDatabaseAlias");
 
-// creates new View
-var createCollectionResult = db.View   
+// deletes View
+var deleteViewResult = db.View   
     .Delete("MyView");
+ if(eleteViewResult.Success)  
+ {
+ ....
+ }
 ```      
+and process 
   
 <b> List  Views</b>
+```csharp
+var db = new ADatabase("myDatabaseAlias");
+
+// creates new View
+var listViewResult = db.View   
+    .GetList();
+    
+if(createViewResult.Success)   
+{
+  foreach (var entity in listViewResult.Value)
+  {
+   .... process result
+  }
+}    
+```      
+  
