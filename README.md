@@ -1,3 +1,7 @@
+2019-02-17
+
+Views - added first simple support for links management via ChangeProperties 
+
 2019-02-14
 
 Added first simple implementation for arango search views - module AView
