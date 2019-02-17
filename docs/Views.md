@@ -68,7 +68,8 @@ if(listViewResult.Success)
   }
 }    
 ```
-<b>Add link <b>
+<b>Add link <b><br/>
+  
 Link is added with most default values : default all fields,analyzers - identity,includeAllFields- true, empty field list  ...
 View support links to Document and Edge Collections  
   
