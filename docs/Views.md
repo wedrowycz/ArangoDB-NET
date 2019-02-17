@@ -30,4 +30,12 @@ var createCollectionResult = db.View
 ```    
 <b> Delete View <b>
   
-<b> Lista View</b>
+```csharp
+var db = new ADatabase("myDatabaseAlias");
+
+// creates new View
+var createCollectionResult = db.View   
+    .Delete("MyView");
+```      
+  
+<b> List  Views</b>
