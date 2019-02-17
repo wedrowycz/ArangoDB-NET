@@ -18,9 +18,16 @@ View operations
 <b> Create View </b>
 
 Fluent api properties :
-   Type(AViewType value) - determines default view typ - arangosearch (1) at this moment (ArangoDB 3.4.2-1)
+  - Type(AViewType value) - determines default view typ - arangosearch (1) at this moment (ArangoDB 3.4.2-1)
 
+```csharp
+var db = new ADatabase("myDatabaseAlias");
 
+// creates new View
+var createCollectionResult = db.View
+    .Type(AViewType.arangosearch)    
+    .Create("MyView");
+```    
 <b> Delete View <b>
   
 <b> Lista View</b>
