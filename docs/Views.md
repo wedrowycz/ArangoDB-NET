@@ -60,7 +60,7 @@ var db = new ADatabase("myDatabaseAlias");
 var listViewResult = db.View   
     .GetList();
     
-if(createViewResult.Success)   
+if(listViewResult.Success)   
 {
   foreach (var entity in listViewResult.Value)
   {
@@ -86,4 +86,21 @@ After adding link's (make sure succesfully) you may query (AQL) and retrieve dat
 ```sql
 for item in MyView
   return item
+```
+
+<b> Acquire list of properties <b>
+```csharp
+var db = new ADatabase("myDatabaseAlias");
+
+// list all Views
+var propertyViewResult = db.View   
+    .GetProperties("MyView");
+    
+if(propertyViewResult.Success)   
+{
+  foreach (var entity in propertyViewResult.Value)
+  {
+   .... process result
+  }
+}    
 ```
