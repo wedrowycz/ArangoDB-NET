@@ -103,3 +103,4 @@ There are following ways to install the driver:
   - [Put request](docs/FoxxOperations.md#put-request)
   - [Patch request](docs/FoxxOperations.md#patch-request)
   - [Delete request](docs/FoxxOperations.md#delete-request)
+- [Views operations](docs/views.md)
