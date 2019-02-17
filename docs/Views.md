@@ -45,9 +45,9 @@ var db = new ADatabase("myDatabaseAlias");
 // deletes View
 var deleteViewResult = db.View   
     .Delete("MyView");
- if(eleteViewResult.Success)  
+ if(deleteViewResult.Success)  
  {
- ....
+    ....
  }
 ```      
 and process 
@@ -56,7 +56,7 @@ and process
 ```csharp
 var db = new ADatabase("myDatabaseAlias");
 
-// creates new View
+// list all Views
 var listViewResult = db.View   
     .GetList();
     
@@ -67,5 +67,10 @@ if(createViewResult.Success)
    .... process result
   }
 }    
-```      
-  
+```
+<b>Add link <b>
+    
+```csharp
+var db = new ADatabase("myDatabaseAlias");
+```
+
