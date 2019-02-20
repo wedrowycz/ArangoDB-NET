@@ -33,8 +33,8 @@ namespace Arango.Tests
             Hostname = "localhost";
             Port = 8529;
             IsSecured = false;
-            UserName = "";
-            Password = "";
+            UserName = "root";
+            Password = "SYSADM";
 
             ASettings.AddConnection(
                 SystemAlias,

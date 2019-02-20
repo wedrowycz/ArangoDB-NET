@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Arango"
+    "\\src\\Arango",
+    "\\src\\Arango\\Arango.Client",
+    "\\src\\Arango\\Arango.Client\\Properties",
+    "\\src\\Arango\\Arango.Client\\Protocol",
+    "\\src\\Arango\\Arango.Client\\Public"
   ],
   "SelectedNode": "\\src\\Arango\\Arango.sln",
   "PreviewInSolutionExplorer": false
